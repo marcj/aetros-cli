@@ -23,11 +23,11 @@ from .network import ensure_dir, get_total_params
 import six
 
 
-class KerasLogger(Callback):
+class KerasCallback(Callback):
 
     def __init__(self, trainer, backend, job_model, general_logger):
         self.params = {}
-        super(KerasLogger, self).__init__()
+        super(KerasCallback, self).__init__()
         self.validation_per_batch = []
         self.ins = None
 

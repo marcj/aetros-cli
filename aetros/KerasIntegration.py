@@ -11,7 +11,7 @@ from aetros.GeneralLogger import GeneralLogger
 from aetros.JobModel import JobModel
 
 from aetros.AetrosBackend import AetrosBackend
-from aetros.KerasLogger import KerasLogger
+from aetros.KerasCallback import KerasCallback
 from aetros.MonitorThread import MonitoringThread
 from aetros.Trainer import Trainer
 
@@ -107,7 +107,7 @@ class KerasIntegration():
         self.trainer.model = self.model
         self.trainer.data_train = {'x': x}
 
-        self.callback = KerasLogger(self.trainer, self.aetros_backend, self.job_model, general_logger)
+        self.callback = KerasCallback(self.trainer, self.aetros_backend, self.job_model, general_logger)
         self.callback.log_epoch = False
         self.callback.model = self.model
         self.callback.confusion_matrix = self.confusion_matrix

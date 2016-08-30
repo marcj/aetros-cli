@@ -63,9 +63,9 @@ def start(job_id, dataset_id=None, server_id='local', insights=False, insights_s
 
     print("start network ...")
 
-    from .KerasLogger import KerasLogger
+    from .KerasCallback import KerasCallback
     trainer = Trainer(aetros_backend, job_model, general_logger)
-    keras_logger = KerasLogger(trainer, aetros_backend, job_model, general_logger)
+    keras_logger = KerasCallback(trainer, aetros_backend, job_model, general_logger)
     keras_logger.insights_sample_path = insights_sample_path
     trainer.callbacks.append(keras_logger)
 
